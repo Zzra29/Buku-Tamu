@@ -66,7 +66,6 @@
                                         <td> <?= $tamu['no_hp'] ?></td>
                                         <td> <?= $tamu['bertemu' ] ?></td>
                                         <td> <?= $tamu['kepentingan' ] ?></td>
-                                        <td><a class="btn btn-success" href="edit-tamu.php?id=<?= $tamu['id_tamu']?>">Ubah</a>
                                         <td>
                                             <a class="btn btn-success" href="edit-tamu.php?id=<?= $tamu['id_tamu'] ?>">Ubah</a>
                                             <a onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="btn btn-danger"
