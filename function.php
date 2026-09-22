@@ -38,20 +38,31 @@ function ubah_tamu($data)
 {
     global $koneksi;
 
-    $id          = htmlspecialchars($data["id_tamu"]);
-    $nama_tamu   = htmlspecialchars($data["nama_tamu"]);
-    $alamat      = htmlspecialchars($data["alamat"]);
-    $no_hp       = htmlspecialchars($data["no_hp"]);
-    $bertemu     = htmlspecialchars($data["bertemu"]);
-    $kepentingan = htmlspecialchars($data["kepentingan"]);
+    $id            = htmlspecialchars($data["id_tamu"]);
+    $nama_tamu     = htmlspecialchars($data["nama_tamu"]);
+    $alamat        = htmlspecialchars($data["alamat"]);
+    $no_hp         = htmlspecialchars($data["no_hp"]);
+    $bertemu       = htmlspecialchars($data["bertemu"]);
+    $kepentingan   = htmlspecialchars($data["kepentingan"]);
 
     $query = "UPDATE buku_tamu SET
-                nama_tamu   = '$nama_tamu',
-                alamat      = '$alamat',
-                no_hp       = '$no_hp',
-                bertemu     = '$bertemu',
-                kepentingan = '$kepentingan'
-              WHERE id_tamu = '$id'";
+                nama_tamu    = '$nama_tamu',
+                alamat       = '$alamat',
+                no_hp        = '$no_hp',
+                bertemu      = '$bertemu',
+                kepentingan  = '$kepentingan'
+                WHERE id_tamu = '$id'";
+
+    mysqli_query($koneksi, $query);
+
+    return mysqli_affected_rows($koneksi);
+}
+
+// function hapus data tamu
+function hapus_tamu($id) {
+    global $koneksi;
+
+    $query = "DELETE FROM buku_tamu WHERE id_tamu = '$id'";
 
     mysqli_query($koneksi, $query);
 
@@ -59,26 +70,3 @@ function ubah_tamu($data)
 }
 
 ?>
-
-    <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Buku Tamu</h1>
-
-    <?php
-    // jika ada tombol simpan
-    if (isset($_POST['simpan'])) {
-        if (tambah_tamu($_POST) > 0) {
-    ?>
-        <div class="alert alert-success" role="alert">
-            Data berhasil disimpan!
-        </div>
-    <?php
-    } else {
-    ?>
-        <div class="alert alert-danger" role="alert">
-            Data gagal disimpan!
-        </div>
-
-    <?php
-        }
-    }
-    ?>
