@@ -145,7 +145,7 @@ if (($_SESSION['role']) != 'operator') {
                     <div class="modal-dialog">
                         <div class="modal-content">
 
-                            <form method="post" action="">
+                            <form method="post" action="" enctype="multipart/form-data">
 
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="tambahModalLabel">
@@ -228,6 +228,13 @@ if (($_SESSION['role']) != 'operator') {
                                                 class="form-control"
                                                 id="kepentingan"
                                                 name="kepentingan">
+                                        </div>
+                                    </div>
+                                        <div class="form-group row">
+                                        <label for="gambar" class="col-sm-3 col-form-label">Unggah Foto</label>
+                                        <div class="custom-file col-sm-8">
+                                            <input type="file" class="custom-file-input" id="gambar" name="gambar">
+                                            <label class="custom-file-label" for="gambar">Choose file</label>
                                         </div>
                                     </div>
 
