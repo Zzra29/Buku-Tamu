@@ -1,4 +1,10 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+session_start();
+?>
+
+<?php
 require 'koneksi.php';
 if (isset($_POST['login'])) {
     $username = $_POST['username'];

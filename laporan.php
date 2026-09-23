@@ -81,7 +81,9 @@ include_once('templates/header.php');
                             $no = 1;
                             // Query untuk memanggil semua data dari tabel buku_tamu
                             $buku_tamu = query("SELECT * FROM buku_tamu WHERE tanggal BETWEEN '$p_awal' AND '$p_akhir'");
-                            foreach ($buku_tamu as $tamu) : ?>
+                            foreach ($buku_tamu as $tamu) : 
+                            ?>
+                            
                             <tr>
                                 <td><?= $no++; ?></td>
                                 <td><?= $tamu['tanggal'] ?></td>

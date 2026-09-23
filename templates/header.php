@@ -1,3 +1,14 @@
+<?php
+// memulai session
+session_start();
+
+// cek bila tidak ada user yang login maka akan di redirect ke halaman login
+if (!isset($_SESSION['login'])) {
+    header('Location: login.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,6 +89,16 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') :
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
+
+            <?php
+if (isset($_SESSION['login'])) :
+?>
+<li class="nav-item">
+    <a class="nav-link" href="logout.php">
+        <i class="fas fa-fw fa-power-off"></i>
+        <span>Logout</span></a>
+</li>
+<?php endif; ?>
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -168,7 +189,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') :
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="logout.php" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
