@@ -10,6 +10,25 @@
                     <!-- Page Heading -->
                     <h1 class="h3 mb-4 text-gray-800">Buku Tamu</h1>
 
+                    <?php
+                    // jika ada tombol simpan
+                    if (isset($_POST['simpan'])) {
+                        if (tambah_tamu($_POST) > 0) {
+                    ?>
+                            <div class="alert alert-success" role="alert">
+                                Data berhasil disimpan!
+                            </div>
+                    <?php
+                        } else {
+                    ?>
+                            <div class="alert alert-danger" role="alert">
+                                Data gagal disimpan!
+                            </div>
+                    <?php
+                        }
+                    }
+                    ?>
+
                     <!-- Custom styles for this page -->
                     <link href="assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
@@ -73,7 +92,7 @@
                                         </td>
                                         </tr>
                                         <?php endforeach; ?>
-                                    <tbody>
+                                        </tbody>
                                 </table>
                             </div>
                         </div>
@@ -205,7 +224,7 @@
                                     </div>
 
                                 </div>
-
+                                            
                                 <div class="modal-footer">
                                     <button type="button"
                                             class="btn btn-secondary"
