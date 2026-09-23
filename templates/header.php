@@ -55,7 +55,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="laporan.php">
                     <i class="fas fa-fw fa-file-alt"></i>
                     <span>Laporan</span></a>
             </li>
